@@ -1,10 +1,10 @@
 <div class="wrapper">
-  <watson-header class="header"></watson-header>
+  <watson-header (menuTrigger)="onMenuTrigger()" class="header"></watson-header>
   <mat-sidenav-container class="content">
     <mat-sidenav
       class="side-nav"
       fixedInViewport="true"
-      [opened]="true"
+      [opened]="menuOpen"
       mode="side"
     >
       <watson-menu></watson-menu

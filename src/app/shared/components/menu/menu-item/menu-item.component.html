@@ -22,7 +22,7 @@
 <ng-template #childItem>
   <mat-list-item
     class="menu-child-item"
-    [routerLink]="['/', item.route]"
+    [routerLink]="['/', 'pages', item.route]"
     routerLinkActive="active-link"
   >
     <p>{{ item.name }}</p>
@@ -31,7 +31,7 @@
 <ng-template #singleRoot>
   <mat-list-item
     class="menu-root-item"
-    [routerLink]="['/', item.route]"
+    [routerLink]="['/', 'pages', item.route]"
     routerLinkActive="active-link"
   >
     <h3>{{ item.name }}</h3>

@@ -5,7 +5,7 @@ import { DocComponent } from './docs/pages/doc/doc.component';
 
 const routes: Routes = [
   {
-    path: 'first-steps',
+    path: 'pages/:title',
     component: DocComponent,
   },
 ];

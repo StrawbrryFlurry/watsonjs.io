@@ -1,4 +1,16 @@
 <mat-toolbar class="header">
-  <img class="logo" src="/assets/logo/logo.png" />
-  <img class="github" src="/assets/logo/github.png" />
+  <div class="banner-left">
+    <button class="menu-trigger" (click)="onMenuTrigger()" mat-button>
+      <mat-icon>menu</mat-icon>
+    </button>
+    <div class="logo-banner">
+      <img class="logo" src="/assets/logo/logo.png" />
+      <h3>Watson</h3>
+    </div>
+  </div>
+  <div class="banner-right">
+    <div class="social-media">
+      <img class="github" src="/assets/logo/github.svg" />
+    </div>
+  </div>
 </mat-toolbar>

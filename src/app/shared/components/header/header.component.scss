@@ -1,7 +1,49 @@
 .header {
   background-color: #161b22;
+  padding: 0;
 
-  .logo {
-    max-height: 70%;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+
+  display: flex;
+  justify-content: space-between;
+
+  .banner-left {
+    height: 100%;
+    display: flex;
+
+    .menu-trigger {
+      height: 100%;
+      width: 50px;
+    }
+
+    .logo-banner {
+      height: 100%;
+      display: flex;
+      align-items: center;
+      padding: 0px 20px;
+
+      .logo {
+        max-height: 70%;
+      }
+
+      h3 {
+        padding-left: 1rem;
+      }
+    }
+  }
+
+  .banner-right {
+    height: 100%;
+    display: flex;
+
+    .social-media {
+      height: 100%;
+      display: flex;
+
+      .github {
+        max-height: 70%;
+        color: white;
+      }
+    }
   }
 }

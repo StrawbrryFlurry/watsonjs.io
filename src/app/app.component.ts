@@ -7,7 +7,13 @@ import { Title } from '@angular/platform-browser';
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
+  public menuOpen = true;
+
   constructor(title: Title) {
     title.setTitle('Watsonjs');
+  }
+
+  public onMenuTrigger() {
+    this.menuOpen = !this.menuOpen;
   }
 }
