@@ -1,0 +1,11 @@
+<div class="sidenav-menu">
+  <mat-nav-list>
+    <div *ngFor="let item of menuItems">
+      <watson-menu-item
+        (expandClick)="expandNav(item)"
+        [item]="item"
+        [children]="item.children"
+      ></watson-menu-item>
+    </div>
+  </mat-nav-list>
+</div>

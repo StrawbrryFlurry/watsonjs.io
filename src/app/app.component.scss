@@ -1,0 +1,27 @@
+.wrapper {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  overflow-y: hidden;
+
+  .header {
+    z-index: 10;
+    position: fixed;
+    height: 60px;
+    width: 100%;
+  }
+
+  .side-nav {
+    margin-top: 60px;
+    height: calc(100vh - 60px);
+    width: 250px;
+    background-color: #0d1117;
+    border: none;
+  }
+
+  .content {
+    margin-top: 60px;
+    flex: 1 auto;
+    background-color: #06090f;
+  }
+}

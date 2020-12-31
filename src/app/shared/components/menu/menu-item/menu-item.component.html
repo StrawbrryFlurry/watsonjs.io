@@ -1,0 +1,39 @@
+<ng-container *ngIf="item.isRoot; else childItem">
+  <ng-container *ngIf="item.children; else singleRoot">
+    <mat-list-item class="menu-root-item" (click)="handleExpandClick()">
+      <h3>{{ item.name }}</h3>
+      <button mat-icon-button>
+        <mat-icon>
+          {{ item.opened ? "expand_more" : "chevron_right" }}
+        </mat-icon>
+      </button>
+    </mat-list-item>
+    <mat-nav-list
+      class="menu-child-list"
+      [ngClass]="{ 'open-item': item.opened, 'closed-item': !item.opened }"
+    >
+      <ng-container *ngFor="let child of item.children">
+        <watson-menu-item [item]="child"></watson-menu-item>
+      </ng-container>
+    </mat-nav-list>
+  </ng-container>
+</ng-container>
+
+<ng-template #childItem>
+  <mat-list-item
+    class="menu-child-item"
+    [routerLink]="['/', item.route]"
+    routerLinkActive="active-link"
+  >
+    <p>{{ item.name }}</p>
+  </mat-list-item>
+</ng-template>
+<ng-template #singleRoot>
+  <mat-list-item
+    class="menu-root-item"
+    [routerLink]="['/', item.route]"
+    routerLinkActive="active-link"
+  >
+    <h3>{{ item.name }}</h3>
+  </mat-list-item>
+</ng-template>

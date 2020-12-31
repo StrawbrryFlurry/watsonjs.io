@@ -1,0 +1,17 @@
+<div class="wrapper">
+  <watson-header class="header"></watson-header>
+  <mat-sidenav-container class="content">
+    <mat-sidenav
+      class="side-nav"
+      fixedInViewport="true"
+      [opened]="true"
+      mode="side"
+    >
+      <watson-menu></watson-menu
+    ></mat-sidenav>
+    <mat-sidenav-content>
+      <router-outlet></router-outlet>
+      <watson-footer></watson-footer>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+</div>
