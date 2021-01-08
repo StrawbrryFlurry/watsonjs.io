@@ -11,6 +11,10 @@
   font-family: "Source Sans Pro", sans-serif;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 * {
   ::-webkit-scrollbar {
     width: 0.5rem;
