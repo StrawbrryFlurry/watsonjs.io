@@ -63,6 +63,15 @@ const MENU_ITEMS: MenuItem[] = [
     ],
   },
   {
+    name: 'Internals',
+    children: [
+      {
+        name: 'Execution context',
+        route: 'execution-context',
+      },
+    ],
+  },
+  {
     name: 'CLI',
     children: [
       {

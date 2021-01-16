@@ -27,19 +27,7 @@ It will call the receiver method `handlePing` whenever a message with the conten
 
 Receivers provide you with a few ways of applying configurations to all its underlying event handlers.
 
-```TS
-export interface IReceiverCommandOptions {
-  casesensitive?: boolean;
-}
-
-export interface IReceiverOptions {
-  commandOptions?: IReceiverCommandOptions;
-  prefix?: string;
-}
-
-/**
- * @param prefix The prefix to be used by the underlying commands
- * @param commandOptions Configurable options for the underlying commands
- */
-export function Receiver(): ClassDecorator;
-```
+| Name            | Description                                                                  |
+| --------------- | ---------------------------------------------------------------------------- |
+| `prefix`        | If no prefix is set for a command in the receiver, this prefix will be used. |
+| `caseSensitive` | Requires all commands to be caseSensitive.                                   |
