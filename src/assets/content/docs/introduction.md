@@ -2,7 +2,7 @@
 
 Watson is a Discord bot framework heavily inspired by the architecture of NestJS and Angular. It uses TypeScript to provide an easy to use API to scale along with the growth and complexity of your application.
 
-We use <a href="https://discord.js.org">discord.js</a> as an interface to the Discord API and also provide you with all the necessairy access to both the client and it's functionality whilst working with watson components.
+We use <a href="https://discord.js.org">discord.js</a> as an interface to the Discord API. You will still have access to both the client and it's full functionality whilst working with watson components.
 
 ## Installation
 
@@ -19,5 +19,5 @@ watson new project-name
 You can also add Watson to an existing project by installing our packages using npm or yarn.
 
 ```Bash
-npm -i @watson/core @watson/common rxjs reflect-meta
+npm i @watson/core @watson/common rxjs reflect-meta
 ```

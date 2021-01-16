@@ -24,16 +24,24 @@ const MENU_ITEMS: MenuItem[] = [
         route: 'first-steps',
       },
       {
-        name: 'Receivers',
-        route: 'receivers',
+        name: 'Modules',
+        route: 'modules',
       },
       {
         name: 'Providers',
         route: 'providers',
       },
       {
-        name: 'Modules',
-        route: 'modules',
+        name: 'Receivers',
+        route: 'receivers',
+      },
+      {
+        name: 'Commands',
+        route: 'commands',
+      },
+      {
+        name: 'Events',
+        route: 'events',
       },
       {
         name: 'Decorators',
@@ -42,25 +50,30 @@ const MENU_ITEMS: MenuItem[] = [
     ],
   },
   {
-    name: 'Stuff',
+    name: 'Guides',
     children: [
       {
-        name: 'First steps',
-        route: 'first-steps',
+        name: 'Database',
+        route: 'database',
       },
       {
-        name: 'First steps',
-        route: 'first-steps',
-      },
-      {
-        name: 'First steps',
-        route: 'first-steps',
+        name: 'Task scheduling',
+        route: 'task-scheduling',
       },
     ],
   },
   {
-    name: 'Test',
-    route: 'first',
+    name: 'CLI',
+    children: [
+      {
+        name: 'Setup',
+        route: 'setup',
+      },
+      {
+        name: 'Usage',
+        route: 'usage',
+      },
+    ],
   },
 ];
 
