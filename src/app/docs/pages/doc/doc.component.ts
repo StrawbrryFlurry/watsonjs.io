@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { Title } from '@angular/platform-browser';
 import { ActivatedRoute } from '@angular/router';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'watson-doc',
@@ -20,7 +21,7 @@ export class DocComponent implements OnInit {
     private readonly title: Title
   ) {}
 
-  private apiURL = 'http://localhost:4200/api/docs';
+  private apiURL = environment.apiURI;
   public content = '';
 
   ngOnInit() {
@@ -29,7 +30,7 @@ export class DocComponent implements OnInit {
       this.title.setTitle(title + ' - Watson');
 
       this.http
-        .get(`${this.apiURL}/${params['title']}`, {
+        .get(`${this.apiURL}/docs/${params['title']}`, {
           responseType: 'text',
         })
         .subscribe((content) => {
