@@ -2,6 +2,7 @@ $font-color: #dcddde;
 $h1-font-color: rgba(255, 255, 255, 0.95);
 $hn-font-color: rgba(255, 255, 255, 0.85);
 $hint-bg-color: rgba(31, 141, 201, 0.65);
+$a-font-color: #2d68c0;
 $code-font-color: #ffd149;
 $code-bg-color: rgba(255, 255, 255, 0.1);
 $mark-font-color: #ffbf00;
@@ -45,7 +46,7 @@ $code-font-family: "Fira Code", monospace;
       text-decoration: none;
       color: $mark-font-color;
       font-weight: 600;
-      color: $font-color;
+      color: $a-font-color;
     }
 
     h1 {

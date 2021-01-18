@@ -47,6 +47,14 @@ const MENU_ITEMS: MenuItem[] = [
         name: 'Decorators',
         route: 'decorators',
       },
+      {
+        name: 'Inquirables',
+        route: 'inquirables',
+      },
+      {
+        name: 'Custom components',
+        route: 'custom-components',
+      },
     ],
   },
   {
