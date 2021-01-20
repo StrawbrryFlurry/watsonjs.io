@@ -9,7 +9,7 @@ Commands are methods decorated with the `@Command` decorator within a receiver c
 A simple command could look like this:
 
 ```TS
-import { Receiver, Command } from '@watson/common';
+import { Receiver, Command } from '@watsonjs/common';
 
 @Receiver()
 export class PingReceiver {
@@ -57,7 +57,7 @@ Command parameters are the part of a command message after the command name. `"!
 This would be a simple command that takes one `number` as a parameter.
 
 ```TS
-import { Command, CommandArgumentType, Param, Receiver } from '@watson/common';
+import { Command, CommandArgumentType, Param, Receiver } from '@watsonjs/common';
 
 @Receiver()
 export class RandomReceiver {
@@ -126,7 +126,7 @@ handlePing() {
 If the default returnable don't fit your needs you can also create your own using the `createCustomReturnable` function.
 
 ```TS
-import { Receiver, Command, createCustomReturnable } from '@watson/common';
+import { Receiver, Command, createCustomReturnable } from '@watsonjs/common';
 
 import { Message } from 'discordjs';
 

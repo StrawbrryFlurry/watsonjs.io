@@ -7,7 +7,7 @@ Receivers are the component of your application that will handle all incomming e
 A basic Receiver could look like this:
 
 ```TS
-import { Receiver, Command, toReply } from '@watson/common';
+import { Receiver, Command, toReply } from '@watsonjs/common';
 
 @Receiver({
   prefix: '!'

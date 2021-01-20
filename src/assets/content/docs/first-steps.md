@@ -11,7 +11,7 @@ Watson purely relies on TypeScript and a lot of its features like experimental d
 Let's set up a new project using the Watson CLI. You can install it using either npm or yarn.
 
 ```BASH
-npm i @watson/cli -g
+npm i @watsonjs/cli -g
 watson new `project-name`
 ```
 
@@ -28,7 +28,7 @@ src
 The main.ts includes an async function that will bootstrap our application:
 
 ```TS
-import { WatsonFactory } from '@watson/core';
+import { WatsonFactory } from '@watsonjs/core';
 import { AppModule } from './app.module';
 
 const bootstrap = async () => {

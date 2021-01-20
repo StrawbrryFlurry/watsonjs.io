@@ -11,7 +11,7 @@ To get started we provide you with multiple options to create a new project. The
 The cli will automatically create a folder for your project, install all the necessairy packages and create some default files to get you started with Watson. You find additional information in the First Steps page.
 
 ```Bash
-npm i -g @watson/cli
+npm i -g @watsonjs/cli
 cd 'my-new-projectdir'
 watson new project-name
 ```
@@ -19,5 +19,5 @@ watson new project-name
 You can also add Watson to an existing project by installing our packages using npm or yarn.
 
 ```Bash
-npm i @watson/core @watson/common rxjs reflect-meta
+npm i @watsonjs/core @watsonjs/common rxjs reflect-meta
 ```

@@ -9,7 +9,7 @@ Services are the most common provider type. They can be used to abstract reusabl
 To create a basic service we start off with a class that is decorated with the `@Injectable` decorator.
 
 ```TS
-import { Injectable } from '@watson/common';
+import { Injectable } from '@watsonjs/common';
 
 @Injectable()
 export class PingService {
@@ -24,7 +24,7 @@ export class PingService {
 With the basics covered, let's build a more sophisticated service that stores users from a command.
 
 ```TS
-import { Injectable } from '@watson/common';
+import { Injectable } from '@watsonjs/common';
 
 export interface IUser {
   username: string
@@ -59,7 +59,7 @@ Now that we have some basic providers to use across our app we need a way to get
 When using type injection the `type` of the parameter in the constructor is being used as a reference on which provider to inject to this parameter in the constructor. You will then be able to use the provider like any other property of the class.
 
 ```TS
-import { Receiver, Command } from '@watson/common';
+import { Receiver, Command } from '@watsonjs/common';
 import { PingService } from './ping.service';
 
 @Receiver({ prefix: '!' })
@@ -80,7 +80,7 @@ Token injection works very similar to type injection. Here we're using the `@Inj
 > Custom injection tokens are full caps and underscore seperated by convention.
 
 ```TS
-import { Receiver, Command } from '@watson/common';
+import { Receiver, Command } from '@watsonjs/common';
 import { PingService } from './ping.service';
 
 @Receiver({ prefix: '!' })
@@ -105,7 +105,7 @@ Factory providers can be used when you first need to complete some action before
 Let us now create such a provider for a TypeORM database connection:
 
 ```TS
-import { FactoryProvider } from '@watson/common';
+import { FactoryProvider } from '@watsonjs/common';
 import { createConnection } from 'typeorm';
 
 const connectionFactory = () => {
@@ -129,14 +129,14 @@ export const ConnectionProvider: FactoryProvider = {
 }
 ```
 
-Use the `ClassProvider` from the `@watson/common` module to easily create a class provider.
+Use the `ClassProvider` from the `@watsonjs/common` module to easily create a class provider.
 
 ### Class providers
 
 This kind of provider creates a new class instance of the class specified in the provide configuration. You will also be able to inject services or other providers into the constructor of the class by using the `inject` property.
 
 ```TS
-import { ClassProvider } from '@watson/common';
+import { ClassProvider } from '@watsonjs/common';
 import { Connection, Entity, Repository } from 'typeorm';
 
 class RepositoryFactory {
@@ -156,14 +156,14 @@ export const RepositoryFactoryProvider: ClassProvider = {
 }
 ```
 
-Use the `ClassProvider` from the `@watson/common` module to easily create a class provider.
+Use the `ClassProvider` from the `@watsonjs/common` module to easily create a class provider.
 
 ### Value providers
 
 Value providers can be used to provide a static vlaue via dependency injection.
 
 ```TS
-import { ValueProvider } from '@watson/common';
+import { ValueProvider } from '@watsonjs/common';
 
 const config = {
   /* Static value */
@@ -175,14 +175,14 @@ export const ConfigurationProvider: ValueProvider = {
 }
 ```
 
-Use the `ValueProvider` from the `@watson/common` module to easily create a value provider.
+Use the `ValueProvider` from the `@watsonjs/common` module to easily create a value provider.
 
 ## Making providers available
 
 To make a provider available to components in a module it has to be registered as such in the module declaration.
 
 ```TS
-import { Module } from '@watson/common';
+import { Module } from '@watsonjs/common';
 
 import { ConnectionProvider } from './connection.provider';
 import { RepositoryFactoryProvider } from './connection.provider';
@@ -199,7 +199,7 @@ export class DatabaseModule {  }
 If you need to access a provider from another module import the host module of the provider to get access to its provider instance.
 
 ```TS
-import { Module } from '@watson/common';
+import { Module } from '@watsonjs/common';
 
 import { DatabaseModule } from '../db/database.module';
 
