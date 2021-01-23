@@ -88,63 +88,6 @@ During the execution of a command you likely want to send some data back to the 
 
 For certain use cases this will not be enought though. That's why Watson provides you with some `returnables` functions that will tell the response controller how to handle the data returned from the handler.
 
-### The `toDm` returnable
-
-Returning this function will send the argument as a direct message to the user that has executed the command.
-
-```TS
-@Command('ping')
-handlePing() {
-  return toDm('pong');
-}
-```
-
-### The `toReply` returnable
-
-This function will have the same effect as calling the `reply` method on the Discordjs `Message` class.
-
-```TS
-@Command('ping')
-handlePing() {
-  return toReply('pong');
-}
-```
-
-### The `toChannel` returnable
-
-Returning the result of this function will cause the response controller to send the resulting value to the channel specified in the `toChannel` function.
-
-```TS
-@Command('ping')
-handlePing() {
-  return toChannel('456279487227887621' or 'announcements', 'pong');
-}
-```
-
-### Custom returnables
-
-If the default returnable don't fit your needs you can also create your own using the `createCustomReturnable` function.
-
-```TS
-import { Receiver, Command, createCustomReturnable } from '@watsonjs/common';
-
-import { Message } from 'discordjs';
-
-const customReturnable = <T>(data: T) =>
-  createCustomReturnable(data, async (message: Message, data: T) => {
-  await message.channel.send(data);
-});
-
-@Receiver()
-export class PingReceiver {
-
-  @Command('ping')
-  handlePing() {
-    return customReturnable('Some data');
-  }
-}
-```
-
 ## Parmeter decorators
 
 # Slash commands

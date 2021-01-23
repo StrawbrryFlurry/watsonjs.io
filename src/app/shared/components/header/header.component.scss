@@ -37,12 +37,30 @@
     display: flex;
 
     .social-media {
-      height: 100%;
       display: flex;
+      align-items: center;
 
-      .github {
-        max-height: 70%;
-        color: white;
+      .socal-link {
+        color: unset;
+        height: 70%;
+
+        .mat-button {
+          height: 100%;
+          margin-left: 10px;
+
+          .social-media-button {
+            display: flex;
+            align-items: center;
+
+            p {
+              margin-right: 10px;
+            }
+
+            ::ng-deep .ng-fa-icon {
+              line-height: 0 !important;
+            }
+          }
+        }
       }
     }
   }

@@ -13,7 +13,7 @@
       [ngClass]="{ 'open-item': item.opened, 'closed-item': !item.opened }"
     >
       <ng-container *ngFor="let child of item.children">
-        <watson-menu-item [item]="child"></watson-menu-item>
+        <watson-menu-item [parent]="item" [item]="child"></watson-menu-item>
       </ng-container>
     </mat-nav-list>
   </ng-container>
@@ -22,7 +22,7 @@
 <ng-template #childItem>
   <mat-list-item
     class="menu-child-item"
-    [routerLink]="['/', 'pages', item.route]"
+    [routerLink]="['/', 'pages', parent.route, item.route]"
     routerLinkActive="active-link"
   >
     <p>{{ item.name }}</p>

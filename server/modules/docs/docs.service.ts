@@ -7,22 +7,22 @@ import { join } from 'path';
 export class DocsService {
   private docsPath = join(__dirname, '../browser/assets/content/docs');
 
-  async getDocDataByName(name: string) {
+  async getDocDataByName(name: string, category?: string) {
     if (typeof name === 'undefined') {
       throw new BadRequestException(
         'An argument for the document name was not provided'
       );
     }
 
-    const files = await new Promise<string[]>((resolve, reject) => {
-      glob(`${this.docsPath}/*${name}*.md`, (err, matches) => {
-        if (err) {
-          return reject(err);
-        }
+    let path = `${this.docsPath}`;
 
-        resolve(matches);
-      });
-    });
+    if (category !== undefined) {
+      path = `${path}/${category}/${name}`;
+    } else {
+      path = `${path}/${name}`;
+    }
+
+    const files = await this.getFiles(path);
 
     if (!files) {
       throw new BadRequestException('The file does not exist');
@@ -39,9 +39,21 @@ export class DocsService {
     return this.readFile(files[0]);
   }
 
-  async readFile(filePath: string) {
+  private async readFile(filePath: string) {
     const fileContent = promises.readFile(filePath, { encoding: 'utf-8' });
 
     return fileContent;
+  }
+
+  private getFiles(path: string) {
+    return new Promise<string[]>((resolve, reject) => {
+      glob(`${path}.md`, (err, matches) => {
+        if (err) {
+          return reject(err);
+        }
+
+        resolve(matches);
+      });
+    });
   }
 }

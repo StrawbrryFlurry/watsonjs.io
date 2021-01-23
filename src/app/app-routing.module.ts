@@ -5,7 +5,16 @@ import { DocComponent } from './docs/pages/doc/doc.component';
 
 const routes: Routes = [
   {
+    path: '',
+    redirectTo: 'pages/introduction',
+    pathMatch: 'full',
+  },
+  {
     path: 'pages/:title',
+    component: DocComponent,
+  },
+  {
+    path: 'pages/:category/:title',
     component: DocComponent,
   },
 ];

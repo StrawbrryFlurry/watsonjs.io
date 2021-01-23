@@ -70,8 +70,37 @@ export class ReactInquirableReceiver {
 
 ## `@InjectCollector()`
 
-This decorator will inject the `CollectFunction` factory to the parameter it's decorating. With it you are able
+This decorator will inject the `CollectFunction` factory to the parameter it's decorating. With it you can create more specific collection filters for either collecting messages or reactions on a message. In essence it is a combination of both the `Ask` and `ReactionFunction`.
+
+A collection function could be used like this:
 
 ```TS
+import { CollectFunction, Command, InjectCollect, Receiver } from '@watsonjs/common';
+import { MessageReaction } from 'discord.js';
 
+const REACTION_FILTER = (reaction: MessageReaction) =>
+  reaction.emoji.name === "🎉";
+
+@Receiver()
+export class CollectionInquirableReceiver {
+  @Command("game")
+  async handleGame(@InjectCollect() collectFn: CollectFunction) {
+    const [participantReaction] = (await collectFn(
+      "React to this message with 🎉 to take part in the game",
+      REACTION_FILTER,
+      "reaction"
+    )) as MessageReaction[];
+
+    if (participantReaction === undefined) {
+      return "Noone responed in time 🤷‍♀️";
+    }
+
+    const participants = participantReaction.users.cache.reduce(
+      (users, user) => [...users, user],
+      []
+    );
+
+    console.log(participants);
+  }
+}
 ```

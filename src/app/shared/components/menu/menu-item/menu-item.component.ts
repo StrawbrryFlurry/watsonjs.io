@@ -10,6 +10,7 @@ import { MenuItemData } from '../menu.component';
 export class MenuItemComponent implements OnInit {
   @Input() item: MenuItemData;
   @Input() children?: MenuItemData;
+  @Input() parent?: MenuItemData;
 
   @Output() expandClick = new EventEmitter<boolean>();
 

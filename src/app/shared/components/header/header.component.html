@@ -5,12 +5,30 @@
     </button>
     <div class="logo-banner">
       <img class="logo" src="/assets/logo/logo.png" />
-      <h3>Watson</h3>
     </div>
   </div>
   <div class="banner-right">
     <div class="social-media">
-      <img class="github" src="/assets/logo/github.svg" />
+      <a class="socal-link" href="https://discord.gg/5egPrnqb" target="_blank">
+        <button mat-button>
+          <div class="social-media-button">
+            <p>Discord</p>
+            <fa-icon size="2x" [icon]="faDiscord"></fa-icon>
+          </div>
+        </button>
+      </a>
+      <a
+        class="socal-link"
+        href="https://github.com/M1CH3L1US/Watson"
+        target="_blank"
+      >
+        <button mat-button>
+          <div class="social-media-button">
+            <p>GitHub</p>
+            <fa-icon size="2x" [icon]="faGithub"></fa-icon>
+          </div>
+        </button>
+      </a>
     </div>
   </div>
 </mat-toolbar>

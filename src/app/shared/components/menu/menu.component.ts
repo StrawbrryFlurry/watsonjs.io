@@ -3,7 +3,12 @@ import { Component } from '@angular/core';
 interface MenuItem {
   name: string;
   route?: string;
-  children?: MenuItem[];
+  children?: ChildItem[];
+}
+
+interface ChildItem {
+  name: string;
+  route?: string;
 }
 
 export interface MenuItemData extends MenuItem {
@@ -11,49 +16,43 @@ export interface MenuItemData extends MenuItem {
   isRoot?: boolean;
 }
 
+const nameToRoute = (name: string) => {
+  return name.toLowerCase().split(' ').join('-');
+};
+
 const MENU_ITEMS: MenuItem[] = [
   {
     name: 'Introduction',
-    route: 'introduction',
   },
   {
     name: 'Overview',
     children: [
       {
         name: 'First steps',
-        route: 'first-steps',
       },
       {
         name: 'Modules',
-        route: 'modules',
       },
       {
         name: 'Providers',
-        route: 'providers',
       },
       {
         name: 'Receivers',
-        route: 'receivers',
       },
       {
         name: 'Commands',
-        route: 'commands',
       },
       {
         name: 'Events',
-        route: 'events',
       },
       {
         name: 'Decorators',
-        route: 'decorators',
       },
       {
         name: 'Inquirables',
-        route: 'inquirables',
       },
       {
         name: 'Custom components',
-        route: 'custom-components',
       },
     ],
   },
@@ -61,12 +60,13 @@ const MENU_ITEMS: MenuItem[] = [
     name: 'Guides',
     children: [
       {
+        name: 'Error handling',
+      },
+      {
         name: 'Database',
-        route: 'database',
       },
       {
         name: 'Task scheduling',
-        route: 'task-scheduling',
       },
     ],
   },
@@ -75,7 +75,9 @@ const MENU_ITEMS: MenuItem[] = [
     children: [
       {
         name: 'Execution context',
-        route: 'execution-context',
+      },
+      {
+        name: 'Watson Application',
       },
     ],
   },
@@ -84,11 +86,9 @@ const MENU_ITEMS: MenuItem[] = [
     children: [
       {
         name: 'Setup',
-        route: 'setup',
       },
       {
         name: 'Usage',
-        route: 'usage',
       },
     ],
   },
@@ -101,10 +101,16 @@ const MENU_ITEMS: MenuItem[] = [
 })
 export class MenuComponent {
   public transformer(item: MenuItem) {
+    const routeName = nameToRoute(item.name);
     return {
       ...item,
       opened: false,
       isRoot: true,
+      route: routeName,
+      children: item.children?.map((e) => ({
+        ...e,
+        route: nameToRoute(e.name),
+      })),
     };
   }
 

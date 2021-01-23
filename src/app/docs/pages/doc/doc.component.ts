@@ -26,11 +26,20 @@ export class DocComponent implements OnInit {
 
   ngOnInit() {
     this.router.params.subscribe((params) => {
-      const title = this.formatTitle(params['title']);
-      this.title.setTitle(title + ' - Watson');
+      const category = params['category'];
+      const title = params['title'];
+      const formattedTitle = this.formatTitle(title);
+      this.title.setTitle(formattedTitle + ' - Watson');
+      let url = `${this.apiURL}/docs`;
+
+      if (category !== undefined) {
+        url = `${url}/${category}/${title}`;
+      } else {
+        url = `${this.apiURL}/docs/${title}`;
+      }
 
       this.http
-        .get(`${this.apiURL}/docs/${params['title']}`, {
+        .get(url, {
           responseType: 'text',
         })
         .subscribe((content) => {

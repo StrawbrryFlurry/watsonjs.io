@@ -7,6 +7,7 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatTreeModule } from '@angular/material/tree';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RouterModule } from '@angular/router';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 import { FooterComponent } from './components/footer/footer.component';
 import { HeaderComponent } from './components/header/header.component';
@@ -30,6 +31,7 @@ import { MenuComponent } from './components/menu/menu.component';
     MatListModule,
     RouterModule,
     MatToolbarModule,
+    FontAwesomeModule,
   ],
 })
 export class SharedModule {}

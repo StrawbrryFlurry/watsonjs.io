@@ -10,4 +10,12 @@ export class DocsController {
   getDocByName(@Param('docName') docName: string) {
     return this.docsService.getDocDataByName(docName);
   }
+
+  @Get(':category/:docName')
+  getCategoryDocByName(
+    @Param('docName') docName: string,
+    @Param('category') category: string
+  ) {
+    return this.docsService.getDocDataByName(docName, category);
+  }
 }

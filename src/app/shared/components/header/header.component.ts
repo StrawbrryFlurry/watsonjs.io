@@ -1,4 +1,5 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { faDiscord, faGithub } from '@fortawesome/free-brands-svg-icons';
 
 @Component({
   selector: 'watson-header',
@@ -7,6 +8,9 @@ import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
   @Output() menuTrigger = new EventEmitter<boolean>();
+
+  faGithub = faGithub;
+  faDiscord = faDiscord;
 
   constructor() {}
 
